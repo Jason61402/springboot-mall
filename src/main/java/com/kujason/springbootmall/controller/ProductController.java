@@ -1,5 +1,6 @@
 package com.kujason.springbootmall.controller;
 
+import com.kujason.springbootmall.constant.ProductCategory;
 import com.kujason.springbootmall.dto.ProductRequest;
 import com.kujason.springbootmall.model.Product;
 import com.kujason.springbootmall.service.ProductService;
@@ -19,8 +20,13 @@ public class ProductController {
 
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(){
-        List<Product> productList = productService.getProducts();
+    public ResponseEntity<List<Product>> getProducts(
+
+            // (required = false) 變成非必填參數，前端有傳值才會進行確認
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search
+            ){
+        List<Product> productList = productService.getProducts(category,search);
 
         return  ResponseEntity.status(HttpStatus.OK).body(productList);
     }
