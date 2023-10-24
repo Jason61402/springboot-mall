@@ -136,7 +136,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     //  重複程式抽出成獨立方法
-    private  String addFilteringSql (String sql,Map<String,Object>map,ProductQueryParams productQueryParams){
+    private String addFilteringSql (String sql,Map<String,Object>map,ProductQueryParams productQueryParams){
 
         // 上方 WHERE 1=1 再拼接以下sql
         if(productQueryParams.getCategory() != null){

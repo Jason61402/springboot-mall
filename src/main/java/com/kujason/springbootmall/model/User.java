@@ -1,12 +1,23 @@
 package com.kujason.springbootmall.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class User {
 
     private Integer userId;
+
+    // 變更返回前端 json 名稱
+    @JsonProperty("e_mail")
     private String email;
+
+    // 隱藏返回值註解
+    @JsonIgnore
     private String password;
+
+
     private Date createdDate;
     private Date lastModifiedDate;
 
