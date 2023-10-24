@@ -1,5 +1,6 @@
 package com.kujason.springbootmall.controller;
 
+import com.kujason.springbootmall.dto.UserLoginRequest;
 import com.kujason.springbootmall.dto.UserRegisterRequest;
 import com.kujason.springbootmall.model.User;
 import com.kujason.springbootmall.service.UserService;
@@ -26,6 +27,13 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
 
+    }
+
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest){
+       User user = userService.login(userLoginRequest);
+
+       return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
 }
