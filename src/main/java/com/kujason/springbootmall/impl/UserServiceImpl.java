@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
         if (user != null){
             log.warn("該 email {} 已經被註冊",userRegisterRequest.getEmail());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//            throw new IllegalArgumentException("用戶信箱重複");
         }
 
         //  使用 MD5 生成密碼的雜湊值
