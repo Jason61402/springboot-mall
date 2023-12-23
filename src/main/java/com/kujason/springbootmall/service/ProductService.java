@@ -1,7 +1,6 @@
 package com.kujason.springbootmall.service;
 
-import com.kujason.springbootmall.constant.ProductCategory;
-import com.kujason.springbootmall.dao.ProductQueryParams;
+import com.kujason.springbootmall.dto.ProductQueryParams;
 import com.kujason.springbootmall.dto.ProductRequest;
 import com.kujason.springbootmall.model.Product;
 

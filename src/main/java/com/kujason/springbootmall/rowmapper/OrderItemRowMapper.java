@@ -17,6 +17,7 @@ public class OrderItemRowMapper implements RowMapper<OrderItem> {
         orderItem.setQuantitiy(resultSet.getInt("quantity"));
         orderItem.setAmount(resultSet.getInt("amount"));
 
+//       擴充 所以要到orderItem model新增對應的條件
         orderItem.setProductName(resultSet.getString("product_name"));
         orderItem.setImageUrl(resultSet.getString("image_url"));
 

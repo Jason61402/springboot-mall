@@ -1,4 +1,4 @@
-package com.kujason.springbootmall.dao;
+package com.kujason.springbootmall.dto;
 
 import com.kujason.springbootmall.constant.ProductCategory;
 

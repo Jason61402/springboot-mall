@@ -1,6 +1,6 @@
 package com.kujason.springbootmall.dao;
 
-import com.kujason.springbootmall.constant.ProductCategory;
+import com.kujason.springbootmall.dto.ProductQueryParams;
 import com.kujason.springbootmall.dto.ProductRequest;
 import com.kujason.springbootmall.model.Product;
 
@@ -19,4 +19,6 @@ public interface ProductDao {
     void updateProduct(Integer productId,ProductRequest productRequest);
 
     void deleteProductById(Integer productId);
+
+    void  updateStock(Integer productId, Integer stock);
 }
