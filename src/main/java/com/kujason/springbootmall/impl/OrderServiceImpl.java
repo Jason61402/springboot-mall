@@ -5,6 +5,7 @@ import com.kujason.springbootmall.dao.ProductDao;
 import com.kujason.springbootmall.dao.UserDao;
 import com.kujason.springbootmall.dto.BuyItem;
 import com.kujason.springbootmall.dto.CreateOrderRequest;
+import com.kujason.springbootmall.dto.OrderQueryParams;
 import com.kujason.springbootmall.model.Order;
 import com.kujason.springbootmall.model.OrderItem;
 import com.kujason.springbootmall.model.Product;
@@ -99,5 +100,23 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderItemList(orderItemList);
 
        return order;
+    }
+
+    @Override
+    public Integer countOrder(OrderQueryParams orderQueryParams) {
+        return orderDao.countOrder(orderQueryParams);
+    }
+
+    @Override
+    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
+        List<Order> orderList = orderDao.getOrders(orderQueryParams);
+
+       //  for loop 針對每筆訂單都去取得對應的 orderList
+        for(Order order : orderList){
+            List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(order.getOrderId());
+            order.setOrderItemList(orderItemList);
+        }
+
+        return orderList;
     }
 }
